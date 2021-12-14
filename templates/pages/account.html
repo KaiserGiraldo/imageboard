@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div class="titleWrapper">
+
+    <fieldset class="titleFieldset">
+
+      <legend>アカウント</legend>
+      <h3>
+        としてログイン: <span id="labelLogin"></span>, <span id="labelGlobalRole"></span>
+      </h3>
+
+      <form action="/logout.js">
+        <button
+          id="logoutFormButton"
+          type="submit">ログアウト</button>
+
+      </form>
+
+      <hr />
+      <a
+        href="/globalManagement.js"
+        id="globalManagementLink">グローバルマネジメント</a>
+      <br />
+      <a href="/.static/pages/moderation.html">モデレートマニュアル</a>
+      <hr />
+
+      <form
+        action="/requestEmailConfirmation.js"
+        method="post"
+        enctype="multipart/form-data"
+        id="confirmationForm">
+        <p>あなたのメールアドレスはまだ確認されていません。</p>
+        <p>そうするまで、パスワードをリセットしたり、
+          レポート通知を受信したりすることはできません。</p>
+        <button
+          type="submit"
+          id="requestConfirmationFormButton">確認メールを
+          リクエストする</button>
+        <hr>
+      </form>
+
+      <h3>設定</h3>
+
+      <form
+        action="/changeAccountSettings.js"
+        method="post"
+        enctype="multipart/form-data">
+
+        <label>
+          E-mail:
+          <input
+            type="email"
+            name="email"
+            class="settingsField"
+            autocomplete="none"
+            id="emailField">
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="settingsField"
+            name="alwaysSignRole"
+            id="checkboxAlwaysSign">
+          常に役割の署名を使用する
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="settingsField"
+            name="reportNotify"
+            id="checkboxReportNotify">
+          電子メールレポート通知を受信する
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="settingsField"
+            name="noBoardReports"
+            id="checkboxNoBoardReports">
+          グローバルリストにボードレポートを表示しない
+        </label>
+        <label id="reportFilterDiv"> レポート通知をフィルタリングする </label>
+
+        <button
+          type="submit"
+          id="saveFormButton">セーブ</button>
+
+      </form>
+
+      <hr />
+
+      <h3>パスワードの変更</h3>
+
+      <form
+        action="/changeAccountPassword.js"
+        method="post"
+        enctype="multipart/form-data">
+
+        <label>
+          現在のパスワード：
+          <input
+            type="password"
+            class="passwordChangeField"
+            name="password"
+            id="fieldPassword">
+        </label>
+        <label>
+          新しいパスワード：
+          <input
+            type="password"
+            class="passwordChangeField"
+            name="newPassword"
+            id="fieldNewPassword">
+        </label>
+        <label>
+          新しいパスワードを確認：
+          <input
+            type="password"
+            class="passwordChangeField"
+            name="confirmation"
+            id="fieldConfirmation">
+        </label>
+
+        <button
+          type="submit"
+          id="passwordFormButton">パスワードを変更する</button>
+
+      </form>
+
+      <hr />
+
+      <h3>アカウントを削除する</h3>
+      <form
+        action="/deleteAccount.js"
+        method="post"
+        enctype="multipart/form-data">
+
+        <label>
+          <input
+            id="confirmationCheckbox"
+            type="checkbox"
+            class="deleteAccountField"
+            name="confirmation">
+          はい、アカウントを削除したいのですが。
+        </label>
+
+        <button
+          id="deleteAccountFormButton"
+          type="submit">アカウントを削除する</button>
+
+      </form>
+      <hr />
+
+      <h3>所有するボード</h3>
+      <div id="ownedDiv" class="linkList"></div>
+      <hr />
+
+      <h3>ボランティアボード</h3>
+      <div id="volunteeredDiv" class="linkList"></div>
+
+      <a
+        href="/latestPostings.js"
+        id="latestPostingsLink">最新の投稿</a>
+
+      <hr />
+
+      <div id="boardCreationDiv">
+
+        <h3>ボードを作成する</h3>
+
+        <form
+          action="/createBoard.js"
+          enctype="multipart/form-data"
+          method="post">
+
+          <label>
+            ボードURI：
+            <input
+              type="text"
+              class="creationField"
+              name="boardUri"
+              id="newBoardFieldUri">
+          </label>
+          <label>
+            ボード名：
+            <input
+              type="text"
+              class="creationField"
+              name="boardName"
+              id="newBoardFieldName">
+          </label>
+          <label>
+            ボードの説明：
+            <input
+              class="creationField"
+              type="text"
+              name="boardDescription"
+              id="newBoardFieldDescription">
+          </label>
+
+          <div class="captchaDiv">
+            <img
+              src="/captcha.js"
+              class="captchaImage" />
+
+            <br>
+            <input
+              type="button"
+              tabindex="-1"
+              onClick="captchaUtils.reloadCaptcha()"
+              value="Reload"
+              class="hidden reloadCaptchaButton">
+            <span class="captchaTimer"></span>
+            <br>
+
+            <input
+              type="text"
+			  autocomplete="none"
+              class="captchaField creationField"
+              name="captcha"
+              id="fieldCaptcha"
+              placeholder="答え">
+
+            <a
+              href="/noCookieCaptcha.js"
+              class="small">クッキーはありませんか？</a>
+
+          </div>
+
+          <button
+            type="submit"
+            id="newBoardFormButton">ボードを作成する</button>
+
+        </form>
+
+      </div>
+
+    </fieldset>
+
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/account.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

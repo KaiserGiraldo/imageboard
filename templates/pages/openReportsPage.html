@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+<script src="/.static/js/interfaceUtils.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div class="titleWrapper">
+
+    <fieldset class="titleFieldset">
+
+      <legend>レポートを開く</legend>
+
+      <form
+        id="filterForm"
+        method="get"
+        action="/openReports.js">
+        <input
+          id="filterBoardIdentifier"
+          name="boardUri"
+          type="hidden">
+
+        カテゴリでフィルタリング：
+        <div id="filterCategoriesDiv"></div>
+        <button
+          id="filterSubmitButton"
+          type="submit">フィルター</button>
+        <hr>
+      </form>
+      <form
+        method="post"
+        action="/closeReports.js"
+        enctype="multipart/form-data">
+
+        <label>
+          <input
+            type="checkbox"
+            class="closeReportsField"
+            name="closeAllFromReporter"
+            id="closeAllFromReporterCheckbox">
+          これらのレポーターからのすべてのレポートを閉じる
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            class="closeReportsField"
+            name="deleteContent"
+            id="deleteContentCheckbox">
+          レポートを閉じた後、レポートされたコンテンツを削除します
+        </label>
+
+        <label>オプションを禁止する</label>
+
+        <label>
+          禁止対象：
+          <select
+            name="banTarget"
+            id="banTargetCombo">
+            <option value="0">なし</option>
+            <option value="1">役職</option>
+            <option value="2">レポーター</option>
+          </select>
+        </label>
+
+        <label>
+          禁止期間：
+          <input
+            type="text"
+            class="closeReportsField"
+            id="fieldBanDuration"
+            name="duration">
+        </label>
+
+        <label>
+          禁止理由：
+          <input
+            type="text"
+            class="closeReportsField"
+            id="fieldBanReason"
+            name="banReason">
+        </label>
+
+        <button
+          type="submit"
+          id="closeReportsFormButton">選択したレポートを閉じる</button>
+
+        <div id="reportDiv"></div>
+
+      </form>
+
+    </fieldset>
+
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/reports.js"></script>
+<script src="/.static/js/postCommon.js"></script>
+
+<!--TODO -->
+<script src="/.static/js/thumbs.js"></script>
+<script src="/.static/js/embed.js"></script>
+<script src="/.static/js/postingMenu.js"></script>
+<script src="/.static/js/posting.js"></script>
+
+</html>

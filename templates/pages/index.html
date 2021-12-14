@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+<script src="/.static/js/interfaceUtils.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeader"></nav>
+
+  <div class="titleWrapper" id="indexWrapper">
+	<fieldset class="titleFieldset" id="welcomeMessage">
+		<div
+		  id="logoBox"
+		  class="title">
+		  <div class="logoImg"> </div>
+		</div>
+
+        <p>
+		<i>無限に広がる無限の掲示板と画像掲示板、モッドちゃんねるへようこそ</i>
+		<br><br>
+		モッドちゃんねるでは、経験やプログラミングの知識がなくても、独自の画像掲示板や掲示板を無料で作成できます。
+		<br><br><br>
+		<span class="tagLine">こにちは/ int / !!</span>
+	</p>
+	</fieldset>
+
+	<fieldset class="titleFieldset">
+		<div id="dynamicLinks"></div>
+	</fieldset>
+
+	<fieldset class="titleFieldset">
+		<div id="dynamicAnnouncement"></div>
+	</fieldset>
+
+	<fieldset class="titleFieldset">
+	<legend>Stats</legend>
+    <div id="divStats">
+      <span>投稿総数：<span id="labelTotalPosts"></span></span>
+      <span>過去1時間の投稿：<span id="labelTotalPPH"></span></span>
+      <span>ユニークな最近のIP：<span id="labelTotalIps"></span></span>
+      <span>ボードの総数：<span id="labelTotalBoards"></span></span>
+      <span>保存されているメディアファイル：<span id="labelTotalFiles"></span></span>
+      <span>合計メディアサイズ：<span id="labelTotalSize"></span></span>
+    </div>
+	</fieldset>
+
+	<fieldset class="titleFieldset">
+	<legend>トップボード</legend>
+    <div
+      id="divBoards"
+      class="topBoards title"></div>
+	</fieldset>
+
+	<div class="splitField">
+		<fieldset class="titleFieldset">
+		<legend>最新の画像</legend>
+			<div id="divLatestImages"></div>
+		</fieldset> 
+		<div></div>
+		<fieldset class="titleFieldset">
+		<legend>最新の投稿</legend>
+			<div id="divLatestPosts"></div>
+		</fieldset>
+	</div>
+
+  </div>
+
+  <footer id="dynamicFooter"></footer>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/watcher.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

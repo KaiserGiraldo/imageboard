@@ -1,0 +1,239 @@
+var interfaceUtils = {};
+interfaceUtils.shownMenu = undefined;
+
+interfaceUtils.addModalRow = function(label, element) {
+
+  var tableBody = document.getElementsByClassName('modalTableBody')[0];
+
+  //element with this class already added, so the row is likely a duplicate
+  if (tableBody.getElementsByClassName(element.className).length > 1) {
+    return
+  }
+
+  var tableRow = document.createElement('tr');
+  tableBody.appendChild(tableRow);
+
+  var labelElement = document.createElement('th');
+  labelElement.innerHTML = label;
+
+  tableRow.appendChild(labelElement);
+
+  var fieldHolder = document.createElement('td');
+
+  fieldHolder.appendChild(element);
+
+  tableRow.appendChild(fieldHolder);
+};
+
+interfaceUtils.getModal = function(header, noCaptcha) {
+
+  var outerPanel = document.createElement('div');
+  outerPanel.className = 'modalPanel';
+  document.body.appendChild(outerPanel);
+
+  var innerPanel = document.createElement('div');
+  innerPanel.className = 'modalInnerPanel';
+  outerPanel.appendChild(innerPanel);
+
+  var modalForm = document.createElement('form');
+  modalForm.className = 'modalForm';
+  innerPanel.appendChild(modalForm);
+
+  var topLabel = document.createElement('h3');
+  topLabel.innerHTML = header;
+  modalForm.appendChild(topLabel);
+
+  if (!noCaptcha) {
+    document.cookie = 'captchaid=; path=/;';
+
+    var captchaImage = document.createElement('img');
+    captchaImage.src = '/captcha.js?d=' + new Date().toString();
+    captchaImage.className = 'captchaImage';
+    modalForm.appendChild(captchaImage);
+
+    var captchaControls = document.createElement('span');
+    captchaControls.className = 'modalCaptchaControls';
+    modalForm.appendChild(captchaControls);
+
+    var reloadButton = document.createElement('input');
+    reloadButton.value = 'Reload';
+    reloadButton.addEventListener('click', function() {
+      captchaUtils.reloadCaptcha()
+    });
+    reloadButton.type = 'button';
+    captchaControls.appendChild(reloadButton);
+
+    var reloadTimer = document.createElement('span');
+    reloadTimer.className = 'captchaTimer';
+    captchaControls.appendChild(reloadTimer);
+
+  }
+
+  var captchaTable = document.createElement('table');
+  var tableBody = document.createElement('tbody');
+  tableBody.className = 'modalTableBody';
+  captchaTable.appendChild(tableBody);
+  modalForm.appendChild(captchaTable);
+
+  var okButton = document.createElement('input');
+  okButton.type = 'submit';
+  okButton.className = 'modalOkButton';
+  okButton.value = 'Ok';
+
+  if (!noCaptcha) {
+
+    var captchaField = document.createElement('input');
+    captchaField.type = 'text';
+    captchaField.className = 'modalAnswer';
+    captchaField.focus();
+
+    interfaceUtils.addModalRow('Answer', captchaField);
+
+  }
+
+  var responseButtonsPanel = document.createElement('span');
+  modalForm.appendChild(responseButtonsPanel);
+
+  responseButtonsPanel.appendChild(okButton);
+
+  var cancelButton = document.createElement('input');
+  cancelButton.type = 'button';
+  cancelButton.value = 'Cancel';
+  cancelButton.onclick = function() {
+    outerPanel.remove();
+  };
+  responseButtonsPanel.appendChild(cancelButton);
+
+  return outerPanel;
+
+};
+
+interfaceUtils.setDraggable = function(element, dragElement) {
+
+  var dragglableInfo = {};
+
+  var stopMoving = function() {
+
+    if (!dragglableInfo.shouldMove) {
+      return;
+    }
+
+    dragglableInfo.shouldMove = false
+    interfaceUtils.lockedDrag = false
+
+    var body = document.getElementsByTagName('body')[0];
+
+    body.onmouseup = dragglableInfo.originalMouseUp;
+
+  };
+
+  var startMoving = function(evt) {
+
+    if (evt.button != 0 || dragglableInfo.shouldMove || interfaceUtils.lockedDrag) {
+      return;
+    }
+
+    evt.preventDefault();
+
+    interfaceUtils.lockedDrag = true;
+
+    dragglableInfo.originalMouseUp = document.body.onmouseup;
+
+    document.body.onmouseup = function() {
+      stopMoving();
+    };
+
+    dragglableInfo.shouldMove = true;
+
+    evt = evt || window.event;
+
+    var rect = element.getBoundingClientRect();
+
+    dragglableInfo.diffX = evt.clientX - rect.left;
+    dragglableInfo.diffY = evt.clientY - rect.top;
+
+  };
+
+  var move = function(evt) {
+
+    if (!dragglableInfo.shouldMove) {
+      return;
+    }
+
+    evt = evt || window.event;
+
+    var newX = evt.clientX - dragglableInfo.diffX;
+    var newY = evt.clientY - dragglableInfo.diffY;
+
+    if (newX < 0) {
+      newX = 0;
+    }
+
+    if (newY < 0) {
+      newY = 0;
+    }
+
+    var upperXLimit = document.body.clientWidth - element.offsetWidth;
+
+    if (newX > upperXLimit) {
+      newX = upperXLimit;
+    }
+
+    var upperYLimit = Math.max(0,window.innerHeight - element.offsetHeight);
+
+    if (newY > upperYLimit) {
+      newY = upperYLimit;
+    }
+
+    element.style.left = newX + 'px';
+    element.style.top = newY + 'px';
+
+  };
+
+  dragElement.onmousedown = startMoving
+  document.body.addEventListener('mousemove', move);
+};
+
+//insert extra menu on user post
+//@post:		post object generated by posting.parseExistingPost
+//@title: 		string, the hover text on the button to make
+//@buttonClass:	string, the CSS class of the button
+//@buildMenu:	function of a single argument (linkSelf) which returns a list
+//				whose entries are objects with members 'name' and 'callback';
+//				the latter is called when clicking the corresponding entry
+interfaceUtils.addMenuDropdown = function(post, title, buttonClass, buildMenu) {
+
+  var parentNode = post.linkSelf.parentNode;
+  var checkbox = parentNode.getElementsByClassName('deletionCheckBox')[0];
+
+  var dropdownButton = document.createElement('span');
+  dropdownButton.className = buttonClass + ' glowOnHover coloredIcon';
+  dropdownButton.title = title;
+
+  parentNode.insertBefore(dropdownButton, checkbox ? checkbox.nextSibling
+      : parentNode.childNodes[0]);
+
+  dropdownButton.onclick = function() {
+    var extraMenu = document.createElement('div');
+    extraMenu.className = 'floatingList extraMenu';
+    dropdownButton.appendChild(extraMenu);
+    interfaceUtils.shownMenu = extraMenu;
+
+    var list = document.createElement('ul');
+    extraMenu.appendChild(list);
+
+    buildMenu(post).forEach((o) => {
+      var button = document.createElement('li');
+      button.innerHTML = o.name;
+      button.onclick = o.callback;
+      list.appendChild(button);
+    });
+  };
+};
+ 
+document.addEventListener('click', function() {
+  if (interfaceUtils.shownMenu) {
+    interfaceUtils.shownMenu.remove();
+    delete interfaceUtils.shownMenu;
+  }
+}, true)

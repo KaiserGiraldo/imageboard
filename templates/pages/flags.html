@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div class="titleWrapper">
+
+    <fieldset class="titleFieldset">
+
+      <legend>フラグ</legend>
+
+      <form
+        action="/createFlag.js"
+        method="post"
+        enctype="multipart/form-data">
+        <input
+          type="hidden"
+          name="boardUri"
+          id="boardIdentifier">
+
+        <div
+          class="hidden"
+          id="dragAndDropDiv">
+          <div
+            class="dropzone"
+            id="dropzone">
+            フラグをドラッグしてアップロードするか、
+            <br>
+            ここをクリックしてフラグを選択します
+          </div>
+          <div id="selectedDiv"></div>
+        </div>
+
+        <label id="nameLabel">
+          フラグ名：
+          <input
+            name="flagName"
+            id="fieldFlagName"
+            type="text">
+        </label>
+        <input
+          type="file"
+          id="files"
+          name="files">
+        <button
+          type="submit"
+          id="addFormButton">フラグを追加</button>
+        <p class="small">
+          許可される最大サイズ：<span id="maxSizeLabel"></span>
+          <br>
+          許可される名前の最大長：<span id="maxNameLengthLabel"></span>
+        </p>
+      </form>
+      <hr />
+      <div id="flagsDiv"></div>
+    </fieldset>
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/flags.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

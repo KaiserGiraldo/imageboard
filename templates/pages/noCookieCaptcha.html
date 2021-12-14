@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div class="titleWrapper">
+  <fieldset class="titleFieldset">
+    <legend>クッキーはありませんか？</legend>
+    <div id="divSolvedCaptcha">
+      <h3>
+        キャプチャが解決しました。 投稿時にキャプチャへの回答としてこのIDを入力します。
+        <span id="labelCaptchaId"></span>
+      </h3>
+      <hr />
+    </div>
+    <div>
+      <p>問題ない！ 代わりに、このキャプチャをここで解決してください。</p>
+      <img id="imageCaptcha">
+      <form
+        method="post"
+        action="/solveCaptcha.js"
+        enctype="multipart/form-data">
+
+        <input
+          type="hidden"
+          name="captchaId"
+          id="inputCaptchaId">
+
+        <label>
+          <input
+            type="text"
+            name="answer"
+            placeholder="答え">
+        </label>
+
+        <input
+          type="submit"
+          value="Solve">
+
+      </form>
+    </div>
+  </fieldset>
+  </div>
+
+  <footer id="dynamicFooter"></footer>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

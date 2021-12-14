@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+<script src="/.static/js/interfaceUtils.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeaderBoard"></nav>
+
+  <header class="boardHeader">
+    <img id="bannerImage" />
+
+    <p id="catalogId">
+      <span class="title">のカタログ</span>
+      <a href="." id="labelBoard"></a>
+    </p>
+  </header>
+
+
+  <div id="postingForm">
+    <button
+      id="togglePosting"
+      class="hidden">投稿スレッド</button>
+    <fieldset id="newPostFieldset" class="boardFieldset">
+      <legend>モード：スレッド</legend>
+
+      <form
+        action="/newThread.js"
+        enctype="multipart/form-data"
+        method="post">
+
+        <div id="postingFormContents"></div>
+
+        <p class="small">
+          <a　href = "rules.html" class = "localPageLink">ルール</a>
+          に従うことを忘れないでください
+        </p>
+
+        <input type="submit" id="formButton" value="Post">
+
+      </form>
+
+    </fieldset>
+
+  </div>
+
+  <div id="dynamicAnnouncement"></div>
+  <hr>
+
+  <div id="catalogWrapper">
+    <div id="divTools">
+
+	  <div class="innerUtility">
+        <a href="./#">インデックス</a>
+        <a id="archiveLinkBoard">アーカイブ</a>
+        <a class="navButton" href="#footer">下</a>
+	  </div>
+
+      <button
+        id="catalogRefreshButton"
+        class="catalogLabel"
+        onclick="catalog.refreshCatalog(true)">更新</button>
+      <label class="catalogLabel">
+        <input
+          type="checkbox"
+          id="autoCatalogRefreshCheckBox"
+          onchange="catalog.changeCatalogRefresh()">
+        自動
+        <span id="catalogRefreshLabel"></span>
+      </label>
+
+      <div style="float: right; margin-top: 6px;">
+      	<span class="catalogLabel">検索 ：</span>
+      	<input
+      	  type="text"
+      	  id="catalogSearchField">
+      </div>
+
+    </div>
+
+    <div
+      id="divThreads"
+      class="catalogDiv"
+      style="display: inline-block"></div>
+  </div>
+  <footer id="dynamicFooterAlt"></footer>
+
+</body>
+
+<script src="/.static/js/crypto.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/board.js"></script>
+<script src="/.static/js/postCommon.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/catalog.js"></script>
+<script src="/.static/js/catalogSorting.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/watcher.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/bypassUtils.js"></script>
+
+</html>

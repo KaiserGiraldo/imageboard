@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div class="titleWrapper" id="boardsWrapper">
+
+    <fieldset class="titleFieldset">
+      <legend>ボード</legend>
+      <form
+        action="/boards.js"
+        method="get">
+
+          <input
+            type="text"
+            name="boardUri"
+            placeholder="ボード">
+
+          <input
+            type="text"
+            name="tags"
+            placeholder="タグ">
+
+          <select name="sorting">
+            <option value=''>最も人気のある</option>
+            <option value='1'>最も人気がない</option>
+            <option value='2'>ほとんどの投稿が最初</option>
+            <option value='3'>投稿が最も少ない</option>
+            <option value='4'>最初に最高のPPH</option>
+            <option value='5'>最初に最低PPH</option>
+            <option value='6'>アルファベット順</option>
+            <option value='7'>アルファベットの逆順</option>
+          </select>
+
+		<label>
+          <input
+            type="checkbox"
+            name="sfw">
+          SFWボードのみ
+		</label>
+
+		<label>
+          <input
+            type="checkbox"
+            name="unindexed">
+          インデックス付けされていないボードのみ
+		</label>
+
+		<label>
+          <input
+            type="checkbox"
+            name="inactive">
+          放棄されたボードのみ
+		</label>
+
+        <input
+          type="submit"
+          value="Search">
+
+      </form>
+
+    <div
+      id="divBoards"
+      class="wide">
+      <span id="divBoardsLegend"> <span id="legend"><span
+          id="labelPPH"
+          class="cellComponent">PPH</span><span
+          id="labelPosts"
+          class="cellComponent">投稿</span><span
+          id="labelUsers"
+          class="cellComponent">ユーザー</span></span></span>
+    </div>
+
+    </fieldset>
+
+
+    <div class="containPages"> [ <div id="divPages"></div> ] </div>
+
+  </div>
+
+  <footer id="dynamicFooter"></footer>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

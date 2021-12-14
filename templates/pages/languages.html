@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div class="titleWrapper">
+
+    <fieldset class="titleFieldset">
+
+      <legend>言語</legend>
+      <h3>新しい言語</h3>
+      <form
+        action="/addLanguage.js"
+        method="post"
+        enctype="multipart/form-data">
+
+        <label>
+          <input
+            type="text"
+            name="headerValues"
+            class="newLanguageField"
+            id="fieldHeaderValues"
+            placeholder="ヘッダー値*">
+        </label>
+
+        <label>
+          <input
+            type="text"
+            name="frontEnd"
+            class="newLanguageField"
+            id="fieldFrontEnd"
+            placeholder="フロントエンド">
+        </label>
+
+        <label>
+          <input
+            type="text"
+            class="newLanguageField"
+            name="languagePack"
+            id="fieldLanguagePack"
+            placeholder="言語パック">
+        </label>
+
+        <button
+          type="submit"
+          id="addFormButton">言語を追加する</button>
+        <br>
+
+      </form>
+      <hr>
+      <h3>既存の言語</h3>
+      <div id="languagesDiv"></div>
+      <br>
+      *：値をコンマで区切ります。スペースは無視されます（a、b、c）
+    </fieldset>
+
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/languages.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

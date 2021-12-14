@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/katex.min.css"
+  type="text/css"
+  rel="stylesheet" />
+
+<script src="/.static/js/theme.js"></script>
+<script src="/.static/js/interfaceUtils.js"></script>
+</head>
+<body>
+
+  <nav id="dynamicHeaderBoard"></nav>
+
+  <header class="boardHeader">
+    <img id="bannerImage" />
+    <div>
+      <p id="labelName"></p>
+    </div>
+    <p id="labelDescription"></p>
+	<span class="boardLinks">
+		<a href="catalog.html">Catalog</a>
+		<a id="archiveLinkBoard">Archive</a>
+        <a class="navButton" href="#footer">Bottom</a>
+	</span>
+  </header>
+
+  <div id="postingForm">
+
+    <fieldset id="newPostFieldset" class="boardFieldset">
+      <legend>モード：スレッド</legend>
+
+      <form
+        action="/newThread.js"
+        enctype="multipart/form-data"
+        method="post">
+
+        <div id="postingFormContents"></div>
+
+        <p class="small">
+          従うことを忘れないでください
+          <a href="rules.html"
+            class="localPageLink">ルール</a>
+        </p>
+
+        <input type="submit" id="formButton" value="Post">
+
+      </form>
+
+    </fieldset>
+
+  </div>
+
+  <div id="dynamicAnnouncement"></div>
+  <div id="panelMessage">
+    <hr>
+    <div id="divMessage"></div>
+  </div>
+
+  <div id="threadList">
+
+    <form
+      action="/contentActions.js"
+      method="post"
+      enctype="multipart/form-data">
+
+      <div id="divThreads"></div>
+
+      <hr class="clearer" />
+
+      <div>
+
+        <span class="containPages">[ <a id="linkPrevious" class="coloredIcon"></a> <span
+          id="divPages"></span> <a id="linkNext" class="coloredIcon"></a> ]
+        </span>
+
+        <br>
+
+        <span id="boardContentLinks" class="innerUtility">
+          <a id="linkManagement">ボードの管理</a>
+          <a id="linkModeration">モデレートボード</a>
+          <a id="linkMod">中程度のスレッド</a>
+        </div>
+
+      </div>
+
+      <div id="actionsForm"></div>
+
+    </form>
+
+  </div>
+
+  <footer id="dynamicFooterAlt"></footer>
+
+</body>
+
+<script src="/.static/js/crypto.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/postCommon.js"></script>
+<script src="/.static/js/board.js"></script>
+
+<script src="/.static/js/watcher.js"></script>
+<script src="/.static/js/thumbs.js"></script>
+<script src="/.static/js/embed.js"></script>
+<script src="/.static/js/tooltips.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/postingMenu.js"></script>
+<script src="/.static/js/posting.js"></script>
+
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/bypassUtils.js"></script>
+
+</html>
