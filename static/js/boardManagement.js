@@ -131,7 +131,7 @@ boardManagement.setIndicatorForRequest = function(obtainedSpoiler) {
       marker.parentNode.insertBefore(indicator, marker);
 
       var indicatorText = document.createElement('p');
-      indicatorText.innerHTML = 'このボード用に保存されたカスタムスポイラーがあります';
+      indicatorText.innerHTML = 'この掲示板用に保存されたカスタムスポイラーがあります';
       indicator.appendChild(indicatorText);
 
     } else {
@@ -408,7 +408,7 @@ boardManagement.transferBoard = function() {
 boardManagement.deleteBoard = function() {
 
   if (!document.getElementById('confirmDelCheckbox').checked) {
-    alert('このボードを削除することを確認する必要があります。')
+    alert('この掲示板を削除することを確認する必要があります。')
     return;
   }
 

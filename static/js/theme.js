@@ -1,7 +1,7 @@
 var theme = {};
 
 theme.themes = [ {
-      label : 'ボード固有のCSS',
+      label : '掲示板固有のCSS',
       id : 'custom'
   }, {
       label : 'Yotsuba B',

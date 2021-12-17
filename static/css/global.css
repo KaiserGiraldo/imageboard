@@ -90,7 +90,7 @@ footer {
 
 /* TODO template this in on all pages */
 #linkEngine:after {
-  content: 'LynxChan';
+  content: 'モッドちゃんねる';
 }
 
 #linkFrontend:before,
@@ -99,7 +99,7 @@ footer {
 }
 
 #linkFrontend:after {
-  content: 'Aleph';
+  content: 'モッドちゃんねる';
 }
 
 .footerDisclaimer {
@@ -150,7 +150,7 @@ nav .coloredIcon:before, footer .coloredIcon:before {
 }
 
 #navLinkHome:after {
-  content: 'home';
+  content: 'ホーム';
 }
 
 #navBoardList:before {
@@ -158,7 +158,7 @@ nav .coloredIcon:before, footer .coloredIcon:before {
 }
 
 #navBoardList:after {
-  content: 'boards';
+  content: '掲示板';
 }
 
 #linkOverboard:before, #navOverboard:before {
@@ -166,7 +166,7 @@ nav .coloredIcon:before, footer .coloredIcon:before {
 }
 
 #navOverboard:after, #linkOverboard:after {
-  content: 'overboard';
+  content: 'わいせつではないオーバー掲示板';
 }
 
 #linkSfwOver:before {
@@ -174,7 +174,7 @@ nav .coloredIcon:before, footer .coloredIcon:before {
 }
 
 #linkSfwOver:after {
-  content: 'overboard sfw';
+  content: 'わいせつではないオーバー掲示板';
 }
 
 #navPosting:before {
@@ -182,7 +182,7 @@ nav .coloredIcon:before, footer .coloredIcon:before {
 }
 
 #navPosting:after {
-  content: 'help';
+  content: 'ヘルプ';
 }
 
 .watchButton:before, #watcherButton:before, .watchedCellDismissButton:before {
@@ -194,7 +194,7 @@ nav .coloredIcon:before, footer .coloredIcon:before {
 }
 
 #watcherButton:after {
-  content: 'watched threads';
+  content: '見たスレッド';
 }
 
 #settingsButton:before {
@@ -202,7 +202,7 @@ nav .coloredIcon:before, footer .coloredIcon:before {
 }
 
 #settingsButton:after {
-  content: 'settings';
+  content: '設定';
 }
 
 #navMod:before {
@@ -210,7 +210,7 @@ nav .coloredIcon:before, footer .coloredIcon:before {
 }
 
 #navMod:after {
-  content: 'user account';
+  content: 'ユーザーアカウント';
 }
 
 /*********************** HELPER CLASSES ***************************************/
@@ -330,24 +330,24 @@ input[type=button], input[type=submit], button {
 
 #checkboxSpoiler+label:after,
 #qrcheckboxSpoiler+label:after {
-  content: "Spoiler All";
+  content: "ネタバレすべて";
 }
 
 #checkboxScramble+label:after,
 #qrcheckboxScramble+label:after {
-  content: "Strip Filenames";
+  content: "ファイル名を削除する";
 }
 
 #doSageCheckbox+label:after {
-  content: "Sage";
+  content: "下げる";
 }
 
 #alwaysUseBypassCheckBox+label:after {
-  content: "Bypass check";
+  content: "バイパスチェック";
 }
 
 #checkboxNoFlag+label:after {
-  content: "No location";
+  content: "場所なし";
 }
 
 #selectedDiv, #selectedDivQr {
@@ -438,7 +438,7 @@ input[type=button], input[type=submit], button {
 }
 
 .postingFormExtra summary::marker {
-  content: "More";
+  content: "もっと";
   font-size: 95%;
 }
 
@@ -693,11 +693,11 @@ fieldset legend {
 }
 
 .showFormDetails summary::marker {
-  content: "Show ";
+  content: "見せる";
 }
 
 .showFormDetails[open] summary::marker {
-  content: "Hide ";
+  content: "隠す";
 }
 
 /******************** UTILITY PAGES *******************************************/
@@ -834,15 +834,15 @@ fieldset legend {
 }
 
 .threadInfo #postCount:before {
-  content: "Posts: ";
+  content: "投稿：";
 }
 
 .threadInfo #idCount:before {
-  content: "UIDs: ";
+  content: "UID：";
 }
 
 .threadInfo #fileCount:before {
-  content: "Files: ";
+  content: "ファイル：";
 }
 
 .labelWsStatus {
@@ -871,7 +871,7 @@ fieldset legend {
 }
 
 #navCatalog:after {
-  content: "Catalog";
+  content: "カタログ";
 }
 
 #linkRss:before {
@@ -887,7 +887,7 @@ fieldset legend {
 }
 
 #linkLogs:after {
-  content: "Logs"
+  content: "ログ"
 }
 
 #linkTop:before {
@@ -895,7 +895,7 @@ fieldset legend {
 }
 
 #linkTop:after {
-  content: "Top";
+  content: "上";
 }
 
 #linkBottom:before {
@@ -903,7 +903,7 @@ fieldset legend {
 }
 
 #linkBottom:after {
-  content: "Bottom";
+  content: "下";
 }
 
 #linkBack:before {
@@ -911,7 +911,7 @@ fieldset legend {
 }
 
 #linkBack:after {
-  content: "Back";
+  content: "戻る";
 }
 
 #navSideCatalog:before {
@@ -919,7 +919,7 @@ fieldset legend {
 }
 
 #navSideCatalog:after {
-  content: "Side Catalog";
+  content: "サイドカタログ";
 }
 
 #galleryLink:before {
@@ -927,7 +927,7 @@ fieldset legend {
 }
 
 #galleryLink:after {
-  content: "Gallery";
+  content: "ギャラリー";
 }
 
 /************************** SIDE CATALOG **************************************/
@@ -1683,7 +1683,7 @@ code {
 }
 
 #linkGlobalLogs:after {
-  content: 'logs';
+  content: 'ログ';
 }
 
 #linkArchives:before {
@@ -1691,7 +1691,7 @@ code {
 }
 
 #linkArchives:after {
-  content: 'archives';
+  content: 'アーカイブ';
 }
 
 #linkGraphs:before {
@@ -1699,7 +1699,7 @@ code {
 }
 
 #linkGraphs:after {
-  content: 'daily graphs';
+  content: '日めくりグラフ';
 }
 
 #linkGlobalRules:before {
@@ -1707,7 +1707,7 @@ code {
 }
 
 #linkGlobalRules:after {
-  content: 'global rules';
+  content: '規約';
 }
 
 #linkLinks:before {
@@ -1715,7 +1715,7 @@ code {
 }
 
 #linkLinks:after {
-  content: 'links';
+  content: 'リンク';
 }
 
 #linkAbout:before {
@@ -1723,7 +1723,7 @@ code {
 }
 
 #linkAbout:after {
-  content: 'about';
+  content: '情報';
 }
 
 #linkDonate:before {
@@ -1731,7 +1731,7 @@ code {
 }
 
 #linkDonate:after {
-  content: 'donate';
+  content: '寄付';
 }
 
 #linkContact:before {
@@ -1739,7 +1739,7 @@ code {
 }
 
 #linkContact:after {
-  content: 'contact';
+  content: '接触';
 }
 
 #linkAccount:before {
@@ -1747,7 +1747,7 @@ code {
 }
 
 #linkAccount:after {
-  content: 'account';
+  content: 'アカウント';
 }
 
 #dynamicLinks {
@@ -1951,10 +1951,10 @@ code {
     display: list-item;
   }
   #qrFilesButton::marker {
-    content: "Files";
+    content: "ファイル";
   }
   #qrCaptchaButton::marker {
-    content: "Captcha";
+    content: "キャプチャ";
   }
   .linkThumb img {
     max-height: 100%;

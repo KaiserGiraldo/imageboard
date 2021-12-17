@@ -100,7 +100,7 @@
             class="settingsField"
             name="noBoardReports"
             id="checkboxNoBoardReports">
-          グローバルリストにボードレポートを表示しない
+          グローバルリストに掲示板レポートを表示しない
         </label>
         <label id="reportFilterDiv"> レポート通知をフィルタリングする </label>
 
@@ -174,11 +174,11 @@
       </form>
       <hr />
 
-      <h3>所有するボード</h3>
+      <h3>所有する掲示板</h3>
       <div id="ownedDiv" class="linkList"></div>
       <hr />
 
-      <h3>ボランティアボード</h3>
+      <h3>ボランティア掲示板</h3>
       <div id="volunteeredDiv" class="linkList"></div>
 
       <a
@@ -189,7 +189,7 @@
 
       <div id="boardCreationDiv">
 
-        <h3>ボードを作成する</h3>
+        <h3>掲示板を作成する</h3>
 
         <form
           action="/createBoard.js"
@@ -197,7 +197,7 @@
           method="post">
 
           <label>
-            ボードURI：
+            掲示板URI：
             <input
               type="text"
               class="creationField"
@@ -205,7 +205,7 @@
               id="newBoardFieldUri">
           </label>
           <label>
-            ボード名：
+            掲示板名：
             <input
               type="text"
               class="creationField"
@@ -213,7 +213,7 @@
               id="newBoardFieldName">
           </label>
           <label>
-            ボードの説明：
+            掲示板の説明：
             <input
               class="creationField"
               type="text"
@@ -252,7 +252,7 @@
 
           <button
             type="submit"
-            id="newBoardFormButton">ボードを作成する</button>
+            id="newBoardFormButton">掲示板を作成する</button>
 
         </form>
 

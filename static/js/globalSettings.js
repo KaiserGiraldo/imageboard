@@ -483,7 +483,7 @@ globalSettings.init = function() {
       setting : 'multipleReports',
       type : 'boolean'
     },
-    checkboxSFWLatestImages : {
+    checkboxわいせつではないLatestImages : {
       setting : 'onlySfwLatestImages',
       type : 'boolean'
     },

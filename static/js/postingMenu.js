@@ -417,8 +417,8 @@ postingMenu.mergeThread = function(board, thread) {
 
 postingMenu.transferThread = function(boardUri, thread) {
 
-  var destination = prompt('どのボードに転送しますか？',
-      'スラッシュなしのボードuri');
+  var destination = prompt('どの掲示板に転送しますか？',
+      'スラッシュなしの掲示板uri');
 
   if (!destination) {
     return;
@@ -763,7 +763,7 @@ postingMenu.setExtraMenuMod = function(post, menuCallbacks, hasFiles) {
     }},
 	{name: 'IP/バイパスで削除'
 	,callback: function() {
-	  if (confirm("このIP/バイパスによって作成されたこのボード上のすべての投稿を削除してもよろしいですか？")) {
+	  if (confirm("このIP/バイパスによって作成されたこの掲示板上のすべての投稿を削除してもよろしいですか？")) {
 	    postingMenu.deleteSinglePost(post.postInfo.board, post.postInfo.thread,
           post.postInfo.post, true, null, null, post.innerPost);
 	  }

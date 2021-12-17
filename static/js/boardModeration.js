@@ -34,7 +34,7 @@ boardModeration.transferBoard = function() {
 boardModeration.deleteBoard = function() {
 
   if (!document.getElementById('confirmDelCheckbox').checked) {
-    alert('このボードを削除することを確認する必要があります。')
+    alert('この掲示板を削除することを確認する必要があります。')
     return;
   }
 
