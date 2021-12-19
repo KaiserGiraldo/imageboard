@@ -1,5 +1,5 @@
 {
-  "errExpiredOrWrongCaptcha": "間違った回答または期限切れのキャプチャ。",
+  "errExpiredOrWrongCaptcha": "間違った回答または期限切れのキャプチャ。", 
   "logGlobalRoleChange": {
     "userPiece": "ユーザー名 {$login}",
     "adminPiece": "サーバーの端末を使用するシステム管理者",
